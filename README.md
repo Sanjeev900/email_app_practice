@@ -17,13 +17,15 @@ Clone the repository to your local machine:
 ```
 
 ## How to use
-First and foremost, run the below command to run database using docker in the project's root directory.
+First and foremost, run the below command to run the database using docker in the project's root directory.
 ```bash
 
    docker compose up -d --build
 ```
 
 To fetch and process emails, follow these steps:
+
+Add your credentials.json file in the *auth* folder. To configure and create your credentials.json file, follow the steps here: ```https://support.google.com/cloud/answer/6158849?hl=en ```
 
 Run the first script to connect to Gmail and fetch emails:
 
@@ -38,8 +40,7 @@ python process_emails.py
 ```
 
 ## Rules
-Path to rules.json file - ```action_rules/rules.json```
-Rules files looks like - 
+Path to rules.json file - ```action_rules/rules.json```. Rules files looks like - 
 
 ```json
 [
