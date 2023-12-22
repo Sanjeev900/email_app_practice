@@ -4,8 +4,9 @@ This repository contains Python scripts designed for seamless Gmail integration,
 
 ## Prerequisite
 
-- python
+- python3
 - docker
+- virtualenv
 
 ## Installation
 Clone the repository to your local machine:
