@@ -36,3 +36,40 @@ Run the second script to process emails, apply rules, and perform actions:
 ```bash
 python process_emails.py
 ```
+
+## Rules
+Path to rules.json file - ```action_rules/rules.json```
+Rules files looks like - 
+
+```json
+[
+    {
+        "rule1": {
+            "collective_predicate": "All",
+            "conditions": [
+                {
+                    "field": "message",
+                    "predicate": "contains",
+                    "value": "Hello"
+                },
+                {
+                    "field": "sender",
+                    "predicate": "contains",
+                    "value": "example@gmail.com"
+                },
+                {
+                    "field": "date",
+                    "predicate": "greater than",
+                    "value": "2023-12-18"
+                }
+            ],
+            "actions": {
+                "mark_as_read": true,
+                "move_to_folder": "SPAM"
+            },
+            "active": 1
+        }
+    }
+]
+
+```
