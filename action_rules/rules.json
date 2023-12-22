@@ -1,0 +1,121 @@
+[
+    {
+        "rule1": {
+            "collective_predicate": "All",
+            "conditions": [
+                {
+                    "field": "message",
+                    "predicate": "contains",
+                    "value": "Don't want"
+                },
+                {
+                    "field": "sender",
+                    "predicate": "contains",
+                    "value": "no-reply@swiggy.in"
+                },
+                {
+                    "field": "date",
+                    "predicate": "greater than",
+                    "value": "2023-12-18"
+                }
+            ],
+            "actions": {
+                "mark_as_read": false,
+                "move_to_folder": "INBOX"
+            },
+            "active": 1
+        }
+    },
+    {
+        "rule2": {
+            "collective_predicate": "Any",
+            "conditions": [
+                {
+                    "field": "sender",
+                    "predicate": "contains",
+                    "value": "connectsanjeev.r@gmail.com"
+                },
+                {
+                    "field": "date",
+                    "predicate": "lesser than",
+                    "value": "2023-12-01"
+                }
+            ],
+            "actions": {
+                "mark_as_read": true
+            },
+            "active": 0
+        }
+    },
+    {
+        "rule3": {
+            "collective_predicate": "All",
+            "conditions": [
+                {
+                    "field": "sender",
+                    "predicate": "contains",
+                    "value": "connectsanjeev.r@gmail.com"
+                },
+                {
+                    "field": "subject",
+                    "predicate": "contains",
+                    "value": "urgent"
+                },
+                {
+                    "field": "date",
+                    "predicate": "greater than",
+                    "value": "2023-12-10"
+                }
+            ],
+            "actions": {
+                "mark_as_read": true,
+                "move_to_folder": "INBOX"
+            },
+            "active": 0
+        }
+    },
+    {
+        "rule4": {
+            "collective_predicate": "Any",
+            "conditions": [
+                {
+                    "field": "subject",
+                    "predicate": "contains",
+                    "value": "invitation"
+                },
+                {
+                    "field": "receiver",
+                    "predicate": "contains",
+                    "value": "connectsanjeev.r@gmail.com"
+                }
+            ],
+            "actions": {
+                "mark_as_read": false,
+                "move_to_folder": "Invitations"
+            },
+            "active": 0
+        }
+    },
+    {
+        "test_rule": {
+            "collective_predicate": "All",
+            "conditions": [
+                {
+                    "field": "subject",
+                    "predicate": "contains",
+                    "value": "test_subject"
+                },
+                {
+                    "field": "receiver",
+                    "predicate": "contains",
+                    "value": "test_receiver"
+                }
+            ],
+            "actions": {
+                "mark_as_read": true,
+                "move_to_folder": "SPAM"
+            },
+            "active": 0
+        }
+    }
+]
