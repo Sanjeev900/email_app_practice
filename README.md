@@ -14,3 +14,9 @@ Clone the repository to your local machine:
     source venv/bin/activate
 
     pip install -r requirements.txt
+
+## How to use
+First and foremost, run the below command to run database using docker in the project's root directory.
+```bash
+
+   docker compose up -d --build
