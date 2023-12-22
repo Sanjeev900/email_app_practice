@@ -25,7 +25,7 @@ First and foremost, run the below command to run the database using docker in th
 
 To fetch and process emails, follow these steps:
 
-Add your credentials.json file in the *auth* folder. To configure and create your credentials.json file, follow the steps here: ```https://support.google.com/cloud/answer/6158849?hl=en ```
+Add your credentials.json file in the *auth* folder. To configure and create your credentials.json file, follow the steps here: [a link] https://support.google.com/cloud/answer/6158849?hl=en 
 
 Run the first script to connect to Gmail and fetch emails:
 
