@@ -5,7 +5,7 @@ This repository contains Python scripts designed for seamless Gmail integration,
 ## Installation
 Clone the repository to your local machine:
  ```bash
-    git clone https://github.com/Sanjeev900/email_app_practice.git
+    git clone git@github.com:Sanjeev900/email_app_practice.git
 
     cd email_app_practice
 
