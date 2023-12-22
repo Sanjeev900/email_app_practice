@@ -74,3 +74,11 @@ Path to rules.json file - ```action_rules/rules.json```. Rules files looks like 
 ]
 
 ```
+
+## Testing
+
+Run the following script - 
+
+```bash
+python -m unittest 
+```
