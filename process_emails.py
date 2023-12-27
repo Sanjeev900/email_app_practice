@@ -6,6 +6,7 @@ from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
 from googleapiclient.discovery import build
 from database import fetch_all_emails
+from fetch_and_save_emails import authenticate_gmail
 
 # Constants
 CLIENT_SECRET_FILE = 'auth/credentials.json'
@@ -224,25 +225,6 @@ def get_label_id(gmail_service, folder_name):
         print(f"Error getting label ID for folder: {str(e)}")
         return None
 
-def authenticate_gmail():
-    """
-    Authenticate the Gmail API.
-
-    Returns:
-        googleapiclient.discovery.Resource: Gmail API service.
-    """
-    creds = None
-    if os.path.exists('token.json'):
-        creds = credentials.Credentials.from_authorized_user_file('token.json', SCOPES)
-    if not creds or not creds.valid:
-        if creds and creds.expired and creds.refresh_token:
-            creds.refresh(Request())
-        else:
-            flow = InstalledAppFlow.from_client_secrets_file(CLIENT_SECRET_FILE, SCOPES)
-            creds = flow.run_local_server(port=0)
-        with open('token.json', 'w') as token:
-            token.write(creds.to_json())
-    return creds
 
 def main():
     creds = authenticate_gmail()

@@ -38,7 +38,7 @@ def clean_email_content(content):
 
     return cleaned_content
 
-def retrieve_and_insert_email_details(message_id, credentials):
+def retrieve_and_insert_email_details(message_id, gmail_service):
     """
     Fetch email details using the Gmail API, clean content, and insert it into the database.
 
@@ -50,8 +50,6 @@ def retrieve_and_insert_email_details(message_id, credentials):
         None
     """
     try:
-        gmail_service = build('gmail', 'v1', credentials=credentials)
-        
         response = get_email_details(message_id, gmail_service)
 
         cleaned_email = clean_email_content(response['message'])
@@ -71,13 +69,17 @@ def get_email_details(message_id, gmail_service):
         dict: Dictionary containing email details.
     """
     msg = fetch_detailed_email(message_id, gmail_service)
+
     headers = msg['payload']['headers']
+
     subject = [header['value'] for header in headers if header['name'] == 'Subject'][0]
     sender = [header['value'] for header in headers if header['name'] == 'From'][0]
     receiver = [header['value'] for header in headers if header['name'] == 'To'][0]
     date = [header['value'] for header in headers if header['name'] == 'Date'][0]
+
     formatted_date = email.utils.parsedate_to_datetime(date)
     email_date = formatted_date.strftime('%Y-%m-%d %H:%M:%S')
+
     message_body = msg['snippet']
     email_id = msg['id']
     
@@ -134,7 +136,7 @@ def main():
         for message in gmail_messages:
             print (" Processed email - ", temp, "/", len(gmail_messages))
             temp += 1 
-            retrieve_and_insert_email_details(message['id'], gmail_credentials) 
+            retrieve_and_insert_email_details(message['id'], gmail_api_service) 
     else:
         print("No Emails")
 
