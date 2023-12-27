@@ -44,7 +44,7 @@ def retrieve_and_insert_email_details(message_id, gmail_service):
 
     Args:
         message_id (str): The ID of the Gmail message.
-        credentials (google.auth.credentials.Credentials): Google API credentials.
+        gmail_service (googleapiclient.discovery.Resource): Gmail API service.
 
     Returns:
         None
